@@ -231,6 +231,7 @@ func (t *triggerer) Trigger(ctx context.Context, repo *core.Repository, base *co
 	if err != nil {
 		logger = logger.WithError(err)
 		logger.Warnln("trigger: cannot parse yaml")
+		logger.Warnln("--------\n" + raw.Data + "\n---------");
 		return t.createBuildError(ctx, repo, base, err.Error())
 	}
 
